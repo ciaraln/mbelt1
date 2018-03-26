@@ -1,0 +1,30 @@
+<div class="wrapper">
+
+  <h2>These pets are looking for a home.</h2>
+  <!-- {{ allPets | json}} -->
+  <a [routerLink]="['/new']">Add a pet the the shelter</a>
+  <br><br>
+  <table align="center">
+    <tr>
+      <th>Name</th>
+      <th>Type</th>
+      <th>Actions</th>
+    </tr>
+    <tr *ngFor=" let pets of allPets">
+      <td>{{ pets.name}}</td>
+      <td>{{ pets.type}}</td>
+      <td>
+        |
+        <button class="button" [routerLink]="['/details/',pets._id]">Details</button> |
+        <button class="button" [routerLink]="['/edit/',pets._id]">Edit</button> |
+        <!-- <button class="button" (click)="onClickDelete(authors._id)">Delete</button> -->
+      </td>
+    </tr>
+  </table>
+  <br>
+  <br>
+  <!-- <button class="button2" (click)="sendallPets()">Get All Pets!</button> -->
+  <br>
+  <br>
+  <br>
+</div>

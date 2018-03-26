@@ -1,0 +1,78 @@
+<div class="wrapperNew">
+  <br>
+  <br>
+  <a [routerLink]="['/home']">Home</a>
+  <br>
+  <br>
+  <p class="error">{{err}}</p>
+  <br>
+  <form (submit)="updateSubmit()" class="postForm" name="myForm">
+    <!-- <p>{{ editPet | json}}</p> -->
+    <label>Name:
+      <input type="text" name="editPet.name" [(ngModel)]="editPet.name" required minlength="3" #name="ngModel"/>
+      <!-- {{ editPet.errors | json }} {{ editPet.valid | json }} -->
+      </label><br>
+          <div *ngIf="name.errors && (name.dirty || name.touched)" class="alert alert-danger" >
+            <div [hidden]="!name.errors.required">
+              Pet Name is required. 
+            </div>
+            <div [hidden]="!name.errors.minlength">
+              Pet Name must be at least 3 characters.
+            </div>
+          </div>
+
+        <br>
+        <label>Pet Type:
+          <input type="text" name="editPet.type" [(ngModel)]="editPet.type"  required minlength="3" #type="ngModel" />
+        </label><br>
+              <div *ngIf="type.errors && (type.dirty || type.touched)" class="alert alert-danger">
+                  <div [hidden]="!type.errors.required">
+                    Pet Type is required.
+                  </div>
+                  <div [hidden]="!type.errors.minlength">
+                    Pet Type must be at least 3 characters.
+                  </div>
+                </div>
+        <br>
+        <label>Pet Description(desc):
+          <input type="text" name="editPet.desc" [(ngModel)]="editPet.desc" required minlength="3" #desc="ngModel" /> 
+        </label><br>
+              <div *ngIf="desc.errors && (desc.dirty || desc.touched)" class="alert alert-danger">
+              <div [hidden]="!desc.errors.required">
+                Pet Description is required.
+              </div>
+              <div [hidden]="!desc.errors.minlength">
+                Pet Description must be at least 3 characters.
+              </div>
+            </div>
+            <br>
+  
+        Skills (Optional):
+        <label>Skill 1:
+          <input type="text" name="editPet.skill1" [(ngModel)]="editPet.skill1"  required minlength="3" #skill1="ngModel" />
+        </label><br>
+                    <div *ngIf="skill1.errors && (skill1.dirty || skill1.touched)" class="alert alert-danger">
+                      <div [hidden]="!skill1.errors.required">
+                        One pet skill is required.
+                      </div>
+                      <div [hidden]="!skill1.errors.minlength">
+                        Pet skill must be at least 3 characters.
+                      </div>
+                    </div>
+        <br>
+        <label>Skill 2:
+          <input type="text" name="editPet.skill2" [(ngModel)]="editPet.skill2" />
+        </label>
+        <br><br>
+        <label>Skill 3:
+          <input type="text" name="editPet.skill3" [(ngModel)]="editPet.skill3" />
+        </label>
+    <br>
+    <br>
+    <input type="submit" value="Edit" class="button3" /> |
+    <button [routerLink]="['/details/', editPet._id]" class="button3">Cancel</button>
+  </form>
+  <br>
+  <br>
+  <br>
+</div>

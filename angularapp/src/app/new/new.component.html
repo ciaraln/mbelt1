@@ -1,0 +1,64 @@
+<div class="wrapperNew">
+  <br>
+  <p>Know of a pet needing a home?</p>
+    <!-- <p class="error">{{err}}</p> -->
+  <h3>Add a new pet</h3>
+  <form (submit)="onSubmit()" class="postForm">
+    <!-- <p>{{ newPet | json}}</p> -->
+    <label>Pet Name:
+      <input type="text" name="newPet.name" [(ngModel)]="newPet.name" required minlength="3" #name="ngModel"/>
+    </label><br>
+          <div *ngIf="name.errors && (name.dirty || name.touched)" class="alert alert-danger">
+            <div [hidden]="!name.errors.required">
+              Pet Name is required.
+            </div>
+            <div [hidden]="!name.errors.minlength">
+              Pet Name must be at least 3 characters.
+            </div>
+          </div>
+      <label>Pet Type:
+        <input type="text" name="newPet.type" [(ngModel)]="newPet.type"  required minlength="3" #type="ngModel" />
+      </label><br>
+            <div *ngIf="type.errors && (type.dirty || type.touched)" class="alert alert-danger">
+              <div [hidden]="!type.errors.required">
+                Pet Type is required.
+              </div>
+              <div [hidden]="!type.errors.minlength">
+                Pet Type must be at least 3 characters.
+              </div>
+            </div>
+      <label>Pet Description(desc):
+        <input type="text" name="newPet.desc" [(ngModel)]="newPet.desc" required minlength="3" #desc="ngModel" />
+      </label><br>
+              <div *ngIf="desc.errors && (desc.dirty || desc.touched)" class="alert alert-danger">
+                <div [hidden]="!desc.errors.required">
+                  Pet Description is required.
+                </div>
+                <div [hidden]="!desc.errors.minlength">
+                  Pet Description must be at least 3 characters.
+                </div>
+              </div>
+      <label>Skill1:
+        <input type="text" name="newPet.skill1" [(ngModel)]="newPet.skill1"  required minlength="3" #skill1="ngModel" />
+      </label><br>
+              <div *ngIf="skill1.errors && (skill1.dirty || skill1.touched)" class="alert alert-danger">
+                <div [hidden]="!skill1.errors.required">
+                  One pet skill is required.
+                </div>
+                <div [hidden]="!skill1.errors.minlength">
+                  Pet skill must be at least 3 characters.
+                </div>
+              </div>
+      <label>Skill2:
+        <input type="text" name="newPet.skill2" [(ngModel)]="newPet.skill2" />
+      </label><br>
+      <label>Skill3:
+        <input type="text" name="newPet.skill3" [(ngModel)]="newPet.skill3" />
+      </label>
+    <br>
+    <br>
+    <input type="submit" value="Add Pet" class="button1" />
+    <input type="button" class="button1" [routerLink]="['/home']" value="Cancel">
+  </form>
+  <br>
+</div>

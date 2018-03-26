@@ -1,0 +1,20 @@
+<div class="wrapperNew" ng-app="myApp" ng-controller="sizeCtrl">
+  <br>
+  <br>
+  <a [routerLink]="['/home']">Home</a>
+  <h2>Details about {{ onePet.name  }}</h2>
+
+  <p>Pet Type: {{ onePet.type }}</p>
+  <p>Pet Description(desc): {{ onePet.desc }}</p>
+  <p>Pet Skill1: {{ onePet.skill1 }}</p>
+  <p>Pet Skill2: {{ onePet.skill2 }}</p>
+  <p>Pet Skill3: {{ onePet.skill3 }}</p>
+  <p>Likes: {{ onePet.likes }}</p>
+  
+
+  <button class="button1"  (click)= "clickLikes(onePet._id)">Like this pet</button> |
+  <button class="button1" (click)="onClickDelete(onePet._id)">Adopt this pet!</button>
+<br>
+<br>
+
+</div>
